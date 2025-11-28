@@ -1,0 +1,116 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #282c34;
+    color: white;
+}
+
+/* Estilos del contenedor principal que divide la página en dos lados */
+.contenedor {
+    display: flex;
+    width: 800px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Estilos para los lados izquierdo y derecho del contenedor */
+.lado-izquierdo, .lado-derecho {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 2s ease;
+    position: relative;
+}
+
+/* Estilos específicos del lado izquierdo */
+.lado-izquierdo {
+    background-color: #3498db;
+    z-index: 1;
+}
+
+/* Estilos específicos del lado derecho */
+.lado-derecho {
+    background-color: #f0f0f0;
+    color: #333;
+    z-index: 0;
+}
+
+/* Estilos para los títulos en ambos lados */
+.lado-izquierdo h2, .lado-derecho h2 {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el párrafo en el lado izquierdo */
+.lado-izquierdo p {
+    margin-bottom: 30px;
+}
+
+/* Estilos para los botones en ambos lados */
+.lado-izquierdo button, .lado-derecho button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    color: #3498db;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Estilos específicos para el botón del lado derecho */
+.lado-derecho button {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Estilos para los campos de entrada en el lado derecho */
+.lado-derecho input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilos para la imagen en el lado izquierdo */
+.imagen-inicio-sesion {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Efecto hover para el botón de ingresar */
+#botonIngresar:hover {
+    color: #3498db;
+    background-color: #ddd;
+}
+
+/* Efecto hover para el botón de registro */
+#botonRegistro:hover {
+    color: #ddd;
+    background-color: #409bd8;
+}
+
+/* Efecto de clic para los botones */
+#botonRegistro:active, #botonIngresar:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+/* Animaciones para mover los lados al hacer clic en los botones */
+.mover-lado-izquierdo {
+    transform: translateX(100%);
+}
+
+.mover-lado-derecho {
+    transform: translateX(-100%);
+}

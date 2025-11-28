@@ -1,0 +1,157 @@
+/* === chat.css === */
+
+/* Importación de fuentes personalizadas */
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-ExtraLight.ttf") format(truetype);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.ttf") format(truetype);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Bold.ttf") format(truetype);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-ExtraBold.ttf") format(truetype);
+    font-weight: 700;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #F4F8FB;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Contenedor principal del chat */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: margin-left 0.5s ease;
+}
+
+/* Encabezado del chat */
+.header {
+    background: linear-gradient(to bottom right, #0073b1, #009ee3); 
+    color: white; 
+    padding: 5px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Área de mensajes */
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #8ab9fb, #9ee7f4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Ajustes cuando el menú está abierto */
+.content.shifted {
+    margin-left: 220px;
+}
+
+.message.shifted {
+    margin-right: 220px;
+}
+
+/* Estilos generales de los mensajes */
+.message {
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    font-size: 1em;
+    line-height: 1.4;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensajes enviados */
+.message.outgoing {
+    background-color: #3A98DB;
+    align-self: flex-end;
+    color: #FFFFFF;
+    margin-left: auto;
+}
+
+/* Mensajes recibidos */
+.message.incoming {
+    background-color: #1ABC9C;
+    align-self: flex-start;
+    color: #FFFFFF;
+    margin-right: auto;
+}
+
+/* Pie de página y área de entrada */
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #2C3E50;
+    border-top: 1px solid #1ABC9C;
+}
+
+.footer input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1em;
+}
+
+/* Botón de envío */
+.footer button {
+    margin-left: 10px;
+    background-color: #1ABC9C;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.footer button:hover {
+    background-color: #2C3E50;
+}
+
+/* Estilo del logo */
+.logo {
+    width: 170px;
+    height: 70px;
+    margin-right: 5px;
+}

@@ -1,0 +1,208 @@
+/* === menu.css === */
+
+/* Estilos generales del menú desplegable */
+.slide {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    background: linear-gradient(to top,#3498DB, #2C3E50 );
+    transition: 0.5s ease;
+    transform: translateX(-220px); /* Oculta el menú inicialmente */
+    z-index: 3;
+}
+
+/* Submenús ocultos por defecto */
+.slide ul li ul { 
+    display: none; 
+    position: relative; 
+    top: 100%;
+    width: 220px; 
+    background: #fff; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Asegura que los elementos del submenú sean interactuables */
+.slide ul li ul li {
+    pointer-events: auto;
+}
+
+/* Muestra el submenú al pasar el mouse o al activarlo */
+.slide ul li:hover > ul,
+.slide ul li.active > ul {
+    display: block;
+    opacity: 1;
+    transform: translateX(-10px);
+    animation: slideIn 0.5s forwards;
+}
+
+/* Oculta el submenú cuando el cursor sale */
+.slide ul li:not(:hover):not(.active) > ul {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s linear 0.1s; 
+}
+
+/* Estilos de los enlaces del submenú */
+.slide ul li ul li a {
+    padding: 10px 15px;
+    background-color: #2C3E50;
+    border-left: 4px solid #009ee3;
+}
+
+/* Efecto al pasar el mouse sobre los elementos del submenú */
+.slide ul li ul li:hover {
+    transform: scale(1.02);
+    background-color: #005a8c;
+}
+
+.slide ul li ul li a:hover {
+    background: #046d7b;
+}
+
+/* Flecha indicadora de submenú */
+.slide ul li:has(ul) > a::after {
+    content: ">";
+    position: absolute;
+    right: 15px;
+    font-size: 1.4em;
+    color: #2561ca;
+    transition: transform 0.3s ease;
+}
+
+/* Rota la flecha cuando el submenú está abierto */
+.slide ul li:hover > a::after,
+.slide ul li.active > a::after {
+    transform: rotate(90deg);
+}
+
+/* Animación de entrada del submenú */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos del título del menú */
+h1 {
+    color: #00e1ff;
+    font-weight: 800;
+    text-align: right;
+    padding: 10px 0;
+    padding-right: 30px;
+    pointer-events: none;
+}
+
+/* Estilos generales de la lista de navegación */
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    color: #27b2dc;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces */
+ul li:hover a {
+    color: #fff;
+    background-color: #27b2dc;
+}
+
+/* Estilos de los iconos */
+img {
+    padding-right: 10px;
+}
+
+ul li a img {
+    width: 40px;
+    text-align: center;
+    padding-left: 10px;
+}
+
+/* Oculta la casilla de verificación usada para el menú desplegable */
+.menu_desplegable {
+    display: none;
+    visibility: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Estilos del botón de menú (hamburguesa) */
+.toggle {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 15px;
+    left: 13px;
+    z-index: 4;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Líneas del icono de menú hamburguesa */
+.toggle .commom {
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: rgb(0, 162, 255);
+    border-radius: 50px;
+    transition: 0.5s ease;
+}
+
+/* Posición de cada línea del menú hamburguesa */
+.toggle .top_line {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .middle_line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .bottom_line {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Efecto de transformación al activar el menú */
+.menu_desplegable:checked ~ .toggle .top_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+
+.menu_desplegable:checked ~ .toggle .bottom_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+
+.menu_desplegable:checked ~ .toggle .middle_line {
+    opacity: 0;
+    transform: translate(20px);
+}
+
+/* Muestra el menú cuando está activado */
+.menu_desplegable:checked ~ .slide {
+    transform: translate(0);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}

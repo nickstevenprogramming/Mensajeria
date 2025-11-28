@@ -1,0 +1,232 @@
+/* Estilos para el navbar en tema claro */
+body.light-theme .navbar {
+  background: #fff;
+  color: #333;
+  box-shadow: 0px 0px 200px 10px #afafaf;
+}
+
+/* Estilos para el navbar en tema oscuro */
+body.dark-theme .navbar {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  box-shadow: 0px 0px 200px 10px #1a1a1a;
+}
+
+body.dark-theme .nav-links li a {
+  color: #e0e0e0;
+}
+
+body.dark-theme .nav-links li a::after {
+  background-color: #66b0ff;
+}
+
+body.dark-theme .perfil-popup {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+body.dark-theme .perfil-popup a {
+  color: #66b0ff;
+}
+
+body.dark-theme .perfil-popup a:hover {
+  background-color: #333;
+}
+
+/* Estilos para el botón de cambio de tema */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  color: inherit;
+}
+
+body.light-theme .theme-toggle button {
+  color: #333;
+}
+
+body.dark-theme .theme-toggle button {
+  color: #e0e0e0;
+}
+
+.theme-toggle button:hover {
+  transform: scale(1.2);
+}
+
+/* Estilos generales para el navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0px;
+  height: 98px;
+  padding: 10px 20px;
+  z-index: 1;
+}
+
+img[alt="Logo del ITFAM"] {
+  width: 160px;
+  height: 59px;
+  padding: 10px;
+}
+
+/* Menú principal */
+.nav-links {
+  text-align: center;
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+  position: relative;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: inline-block;
+  padding: 15px;
+  padding-bottom: 5px;
+}
+
+/* Línea animada en hover */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #333;
+  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px 0;
+  min-width: 150px;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navbar-logo {
+  box-shadow: 10px 5px 5px red;
+  forced-color-adjust: r;
+}
+
+/* Estilos para el icono de usuario */
+.user-icon {
+  cursor: pointer;
+  box-shadow: 10px 5px 5px red;
+}
+
+.user-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 10px 5px 5px red;
+}
+
+.user-icon img:hover {
+  transform: scale(1.1);
+  box-shadow: #1ccc10;
+  box-shadow: 10px 5px 5px red;
+}
+
+/* Panel desplegable del usuario */
+.perfil-popup {
+  position: absolute;
+  right: 17px;
+  top: 80px;
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  min-width: 150px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.8s ease, transform 0.8s ease-in-out;
+  visibility: hidden;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.perfil-popup.show {
+  animation-name: fadeIn;
+  visibility: visible;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.badge-light {
+  background-color: #1ccc10;
+  color: #333;
+  top: 4px;
+  right: -2px;
+  height: 7px;
+  width: 7px;
+}
+
+.perfil-popup p {
+  margin-bottom: 5px;
+}
+
+.perfil-popup strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.perfil-popup a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.perfil-popup a:hover {
+  background-color: #f0f8ff;
+}
