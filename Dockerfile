@@ -1,14 +1,20 @@
-# Usa una imagen base oficial de PHP con Apache (fácil y ligera)
+# Usa la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Copia tus archivos PHP a la carpeta del servidor web
+# Instala la extensión mysqli y pdo_mysql (para que funcione new mysqli())
+RUN docker-php-ext-install mysqli pdo_mysql
+
+# Copia todos tus archivos al servidor web
 COPY . /var/www/html/
 
-# Habilita el módulo rewrite si usas URLs amigables (opcional, quítalo si no lo necesitas)
+# Habilita mod_rewrite (por si usas URLs amigables)
 RUN a2enmod rewrite
 
-# Expone el puerto 80 (estándar para web)
+# Corrige permisos (importante)
+RUN chown -R www-data:www-data /var/www/html/ && chmod -R 755 /var/www/html/
+
+# Expone el puerto 80
 EXPOSE 80
 
-# Inicia Apache (el servidor web)
+# Inicia Apache
 CMD ["apache2-foreground"]
